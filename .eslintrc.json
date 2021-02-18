@@ -19,6 +19,7 @@
 		"plugin:prettier/recommended"
 	],
 	"rules": {
+		"no-any": false,
 		"prettier/prettier": [
 			"warn",
 			{

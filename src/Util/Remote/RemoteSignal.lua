@@ -39,17 +39,17 @@ function RemoteSignal.new()
 end
 
 
-function RemoteSignal:fire(player, ...)
+function RemoteSignal:Fire(player, ...)
 	self._remote:FireClient(player, Ser.SerializeArgsAndUnpack(...))
 end
 
 
-function RemoteSignal:fireAll(...)
+function RemoteSignal:FireAll(...)
 	self._remote:FireAllClients(Ser.SerializeArgsAndUnpack(...))
 end
 
 
-function RemoteSignal:fireExcept(player, ...)
+function RemoteSignal:FireExcept(player, ...)
 	local args = Ser.SerializeArgs(...)
 	for _,plr in ipairs(Players:GetPlayers()) do
 		if (plr ~= player) then
@@ -59,19 +59,19 @@ function RemoteSignal:fireExcept(player, ...)
 end
 
 
-function RemoteSignal:wait()
+function RemoteSignal:Wait()
 	return self._remote.OnServerEvent:Wait()
 end
 
 
-function RemoteSignal:connect(handler)
+function RemoteSignal:Connect(handler)
 	return self._remote.OnServerEvent:Connect(function(player, ...)
 		handler(player, Ser.DeserializeArgsAndUnpack(...))
 	end)
 end
 
 
-function RemoteSignal:destroy()
+function RemoteSignal:Destroy()
 	self._remote:Destroy()
 	self._remote = nil
 end
