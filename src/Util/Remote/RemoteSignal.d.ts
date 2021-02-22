@@ -3,6 +3,10 @@ export declare class RemoteSignal {
     Fire(player: Player, ...args: any[]): void;
     FireAll(...args: any[]): void;
     FireExcept(player: Player, ...args: any[]): void;
-    Wait(): LuaTuple<any>;
+    Wait(): LuaTuple<[...any]>;
     Destroy(): void;
+
+    static Is(object: unknown): boolean;
+
+    _remote: RemoteEvent;
 }

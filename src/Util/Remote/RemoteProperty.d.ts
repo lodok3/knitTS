@@ -1,12 +1,15 @@
 import { Signal } from "Util/Signal";
 
-export declare class RemoteProperty<T> {
+export declare class RemoteProperty {
     constructor(value: any, overrideClass?: string);
 
-    Get(): T;
-    Set<T>(value: any): void;
+    Get(): unknown;
+    Set(value: any): void;
     Replicate(): void;
     Destroy(): void;
 
-    Changed: Signal<T>;
+    Changed: Signal;
+    static Is(object: unknown): boolean;
+
+    _object: Instance;
 }

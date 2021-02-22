@@ -1,11 +1,11 @@
-export declare class Signal<T> {
+export declare class Signal {
     constructor();
 
     Fire(...args: any[]): void;
-    Wait(): LuaTuple<any>;
+    Wait(): LuaTuple<[...any]>;
     WaitPromise(): Promise<any>;
     Destroy(): void;
     DisconnectAll(): void;
 
-    Connect(handler: (...args: any[]) => void): Connection<Signal<T>>;
+    Connect(handler: (...args: any[]) => void): Connection<Signal>;
 }

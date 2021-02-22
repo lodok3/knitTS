@@ -3,6 +3,6 @@ export declare class ClientRemoteSignal {
 
     Connect(handler: (...args: any[]) => any): Connection<ClientRemoteSignal>;
     Fire(...args: any[]): void;
-    Wait(): LuaTuple<any>;
+    Wait(): LuaTuple<[...any]>;
     Destroy(): void;
 }

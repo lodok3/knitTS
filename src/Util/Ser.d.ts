@@ -8,10 +8,10 @@ interface ClassSer {
 export declare class Ser {
     static Classes: ClassSer;
     static SerializeArgs(...args: any[]): Array<unknown>;
-    static SerializeArgsAndUnpack(...args: any[]): LuaTuple<any>;
+    static SerializeArgsAndUnpack(...args: any[]): LuaTuple<[...any]>;
     static DeserializeArgs(...args: any[]): Array<unknown>;
-    static DeserializeArgsAndUnpack(...args: any[]): LuaTuple<any>;
+    static DeserializeArgsAndUnpack(...args: any[]): LuaTuple<[...any]>;
     static Serialize(value: any): any;
     static Deserialize(value: any): any;
-    static UnpackArgs(...args: any[]): LuaTuple<any>;
+    static UnpackArgs(...args: any[]): LuaTuple<[...any]>;
 }

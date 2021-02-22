@@ -1,10 +1,10 @@
 import { Signal } from "Util/Signal";
 
-export declare class ClientRemoteProperty<T> {
-    constructor(valueObject: ValueBase);
+export declare class ClientRemoteProperty {
+    constructor(valueObject: ValueBase | RemoteEvent);
 
     Get(): any;
     Destroy(): void;
 
-    Changed: Signal<T>
+    Changed: Signal
 }
