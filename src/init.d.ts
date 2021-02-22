@@ -23,7 +23,7 @@ declare namespace Knit {
         static AddControllersDeep: (folder: Folder) => Controller[];
         static GetService: (serviceName: string) => ServiceMirror;
         static GetController: (controller: Controller) => Controller;
-        static Start: Promise<null>;
+        static Start: () => void;
         static OnStart: Promise<null>;
     }
 
@@ -32,7 +32,7 @@ declare namespace Knit {
         static CreateService: (service: Service) => Service;
         static AddServices: (folder: Folder) => Service[];
         static AddServicesDeep: (folder: Folder) => Service[];
-        static Start: Promise<null>;
+        static Start: () => void;
         static OnStart: Promise<null>;
     }
 }
