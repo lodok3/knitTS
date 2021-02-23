@@ -1,5 +1,8 @@
+import { Component } from "Util/Component";
 import { ClientRemoteProperty } from "Util/Remote/ClientRemoteProperty";
 import { ClientRemoteSignal } from "Util/Remote/ClientRemoteSignal";
+import { TableUtil } from "Util/TableUtil";
+import { Thread } from "Util/Thread";
 
 declare interface GameModule {
     Name: string;
@@ -14,6 +17,12 @@ declare interface Service extends GameModule {
 
 declare interface ServiceMirror {
     [key: string]: ClientRemoteSignal | ClientRemoteProperty | ((...args: unknown[]) => unknown);
+}
+
+interface Util {
+    Component: typeof Component;
+    TableUtil: typeof TableUtil;
+    Thread: typeof Thread;
 }
 
 declare namespace Knit {
@@ -35,6 +44,8 @@ declare namespace Knit {
         static Start: () => void;
         static OnStart: Promise<null>;
     }
+
+    const Util: Util
 }
 
 export = Knit;
