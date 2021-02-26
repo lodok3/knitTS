@@ -15,7 +15,7 @@ declare interface Service extends GameModule {
     Client: unknown;
 }
 
-declare type Util = {
+type Util = {
     TableUtil: TableUtil;
     Signal: typeof Signal;
     Thread: Thread
