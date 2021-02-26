@@ -1,8 +1,8 @@
-import { ClientRemoteProperty } from "Util/Remote/ClientRemoteProperty";
-import { ClientRemoteSignal } from "Util/Remote/ClientRemoteSignal";
-import { TableUtil } from "Util/TableUtil"
-import { Signal } from "Util/Signal";
-import { Thread } from "Util/Thread";
+import { ClientRemoteProperty } from "./Util/Remote/ClientRemoteProperty";
+import { ClientRemoteSignal } from "./Util/Remote/ClientRemoteSignal";
+import { TableUtil } from "./Util/TableUtil"
+import { Signal } from "./Util/Signal";
+import { Thread } from "./Util/Thread";
 
 declare interface GameModule {
     Name: string;
@@ -39,10 +39,10 @@ declare namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    namespace Util {
-        const tableUtil: TableUtil;
-        const signal: typeof Signal;
-        const thread: Thread
+    abstract class Util {
+        TableUtil: TableUtil;
+        Signal: typeof Signal;
+        Thread: Thread
     }
 }
 
