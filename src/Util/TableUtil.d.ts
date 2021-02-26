@@ -2,7 +2,7 @@ interface Table {
     [key: string]: any;
 }
 
-export declare interface TableUtil {
+interface TableUtil {
     Copy(tbl: Table): Table;
     CopyShallow(tbl: Table): Table;
     Sync(tbl: Table, templateTbl: Table): void;

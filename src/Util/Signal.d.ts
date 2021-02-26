@@ -1,4 +1,4 @@
-export declare class Signal {
+declare class Signal {
     constructor();
 
     Fire(...args: any[]): void;
