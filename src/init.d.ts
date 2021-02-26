@@ -4,6 +4,10 @@ import { Signal } from "Util/Signal";
 import { TableUtil } from "Util/TableUtil";
 import { Thread } from "Util/Thread";
 
+/// <reference path="Util/Signal" />
+/// <reference path="Util/TableUtil" />
+/// <reference path="Util/Thread" />
+
 declare interface GameModule {
     Name: string;
     KnitInit?: () => void;
