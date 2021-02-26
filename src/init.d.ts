@@ -1,10 +1,6 @@
 import { ClientRemoteProperty } from "Util/Remote/ClientRemoteProperty";
 import { ClientRemoteSignal } from "Util/Remote/ClientRemoteSignal";
 
-/// <reference types="Util/Signal.d.ts" />
-/// <reference types="Util/TableUtil.d.ts" />
-/// <reference types="Util/Thread.d.ts" />
-
 declare interface GameModule {
     Name: string;
     KnitInit?: () => void;
@@ -20,8 +16,8 @@ declare interface ServiceMirror {
     [key: string]: ClientRemoteSignal | ClientRemoteProperty | ((...args: unknown[]) => unknown);
 }
 
-export namespace Knit {
-    abstract class KnitClient {
+declare namespace Knit {
+    class KnitClient {
         static CreateController: (controller: Controller) => Controller;
         static AddControllers: (folder: Folder) => Controller[];
         static AddControllersDeep: (folder: Folder) => Controller[];
@@ -31,7 +27,7 @@ export namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    abstract class KnitServer {
+    class KnitServer {
         static IsService: (object: object) => boolean;
         static CreateService: (service: Service) => Service;
         static AddServices: (folder: Folder) => Service[];
@@ -40,9 +36,11 @@ export namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    let Util: {
-        TableUtil: TableUtil;
-        Signal: typeof Signal;
-        Thread: Thread
-    };
+    class Util {
+        static TableUtil: TableUtil;
+        static Signal: typeof Signal;
+        static Thread: Thread
+    }
 }
+
+export = Knit;
