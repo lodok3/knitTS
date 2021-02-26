@@ -16,9 +16,9 @@ declare interface Service extends GameModule {
 }
 
 declare type Util = {
-    TableUtil: typeof TableUtil;
+    TableUtil: TableUtil;
     Signal: typeof Signal;
-    Thread: typeof Thread
+    Thread: Thread
 };
 
 declare interface ServiceMirror {
