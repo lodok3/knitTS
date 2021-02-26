@@ -2,7 +2,7 @@ interface Table {
     [key: string]: any;
 }
 
-export declare class TableUtil {
+export declare abstract class TableUtil {
     static Copy(tbl: Table): Table;
     static CopyShallow(tbl: Table): Table;
     static Sync(tbl: Table, templateTbl: Table): void;
