@@ -39,10 +39,10 @@ declare namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    abstract class Util {
-        TableUtil: TableUtil;
-        Signal: typeof Signal;
-        Thread: Thread
+    namespace Util {
+        const TableUtil: TableUtil
+        class SignalExtended extends Signal {}
+        const Thread: Thread
     }
 }
 
