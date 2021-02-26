@@ -4,10 +4,6 @@ import { Signal } from "Util/Signal";
 import { TableUtil } from "Util/TableUtil";
 import { Thread } from "Util/Thread";
 
-/// <reference path="Util/Signal" />
-/// <reference path="Util/TableUtil" />
-/// <reference path="Util/Thread" />
-
 declare interface GameModule {
     Name: string;
     KnitInit?: () => void;
@@ -18,6 +14,12 @@ declare interface Controller extends GameModule {}
 declare interface Service extends GameModule {
     Client: unknown;
 }
+
+declare type Util = {
+    TableUtil: typeof TableUtil;
+    Signal: typeof Signal;
+    Thread: typeof Thread
+};
 
 declare interface ServiceMirror {
     [key: string]: ClientRemoteSignal | ClientRemoteProperty | ((...args: unknown[]) => unknown);
@@ -43,10 +45,6 @@ declare namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    const Util: {
-        TableUtil: TableUtil,
-        Signal: Signal,
-        Thread: Thread
-    }
+    const Util: Util
 }
 export = Knit;
