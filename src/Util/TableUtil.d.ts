@@ -1,8 +1,8 @@
-interface Table {
+export declare interface Table {
     [key: string]: any;
 }
 
-interface TableUtil {
+export declare interface TableUtil {
     Copy(tbl: Table): Table;
     CopyShallow(tbl: Table): Table;
     Sync(tbl: Table, templateTbl: Table): void;
