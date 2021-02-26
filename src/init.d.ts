@@ -16,17 +16,11 @@ declare interface Service extends GameModule {
     Client: unknown;
 }
 
-type Util = {
-    TableUtil: TableUtil;
-    Signal: typeof Signal;
-    Thread: Thread
-};
-
 declare interface ServiceMirror {
     [key: string]: ClientRemoteSignal | ClientRemoteProperty | ((...args: unknown[]) => unknown);
 }
 
-declare namespace Knit {
+export namespace Knit {
     abstract class KnitClient {
         static CreateController: (controller: Controller) => Controller;
         static AddControllers: (folder: Folder) => Controller[];
@@ -46,6 +40,9 @@ declare namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    const Util: Util
+    let Util: {
+        TableUtil: TableUtil;
+        Signal: typeof Signal;
+        Thread: Thread
+    };
 }
-export = Knit;
