@@ -1,6 +1,8 @@
 import { ClientRemoteProperty } from "Util/Remote/ClientRemoteProperty";
 import { ClientRemoteSignal } from "Util/Remote/ClientRemoteSignal";
-import util from "Util/init";
+import { Signal } from "Util/Signal";
+import { TableUtil } from "Util/TableUtil";
+import { Thread } from "Util/Thread";
 
 declare interface GameModule {
     Name: string;
@@ -37,6 +39,10 @@ declare namespace Knit {
         static OnStart: Promise<null>;
     }
 
-    const Util: typeof util
+    const Util: {
+        TableUtil: TableUtil,
+        Signal: Signal,
+        Thread: Thread
+    }
 }
 export = Knit;
