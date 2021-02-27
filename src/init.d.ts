@@ -13,6 +13,8 @@ declare interface GameModule {
     Name: string;
     KnitInit?: () => void;
     KnitStart?: () => void;
+    [key: string]: unknown;
+    [key: number]: unknown;
 }
 
 declare interface Controller extends GameModule {}
