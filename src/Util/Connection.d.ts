@@ -1,4 +1,4 @@
-declare class Connection<T> {
+export declare class Connection<T> {
     constructor(event: T, connection: RBXScriptConnection)
 
     IsConnected(): boolean;

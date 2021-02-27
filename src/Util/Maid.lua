@@ -82,7 +82,7 @@ end
 --- Same as indexing, but uses an incremented number as a key.
 -- @param task An item to clean
 -- @treturn number taskId
-function Maid:giveTask(task)
+function Maid:GiveTask(task)
 	assert(task, "Task cannot be false or nil")
 
 	local taskId = (#self._tasks + 1)
@@ -98,7 +98,7 @@ end
 
 --- Cleans up all tasks.
 -- @alias Destroy
-function Maid:doCleaning()
+function Maid:DoCleaning()
 	local tasks = self._tasks
 
 	-- Disconnect all events first as we know this is safe
@@ -127,6 +127,6 @@ end
 
 --- Alias for DoCleaning()
 -- @function Destroy
-Maid.destroy = Maid.doCleaning
+Maid.Destroy = Maid.DoCleaning
 
 return Maid

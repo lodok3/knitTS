@@ -1,8 +1,13 @@
-import { ClientRemoteProperty } from "./Util/Remote/ClientRemoteProperty";
-import { ClientRemoteSignal } from "./Util/Remote/ClientRemoteSignal";
+import { ClientRemoteProperty as _ClientRemoteProperty } from "./Util/Remote/ClientRemoteProperty";
+import { ClientRemoteSignal as _ClientRemoteSignal } from "./Util/Remote/ClientRemoteSignal";
+import { RemoteProperty as _RemoteProperty } from "./Util/Remote/RemoteProperty";
+import { RemoteSignal as _RemoteSignal } from "./Util/Remote/RemoteSignal";
 import { TableUtil } from "./Util/TableUtil"
-import { Signal } from "./Util/Signal";
+import { Signal as _Signal } from "./Util/Signal";
 import { Thread } from "./Util/Thread";
+import { Component as _Component } from "Util/Component";
+import { Connection as _Connection } from "Util/Connection";
+import Maid from "Util/Maid"
 
 declare interface GameModule {
     Name: string;
@@ -16,7 +21,7 @@ declare interface Service extends GameModule {
 }
 
 declare interface ServiceMirror {
-    [key: string]: ClientRemoteSignal | ClientRemoteProperty | ((...args: unknown[]) => unknown);
+    [key: string]: _ClientRemoteSignal | _ClientRemoteProperty | ((...args: unknown[]) => unknown);
 }
 
 declare namespace Knit {
@@ -40,8 +45,15 @@ declare namespace Knit {
     }
 
     module Util {
+        class Component extends _Component {}
+        class Connection<T> extends _Connection<T> {}
+        class ClientRemoteProperty extends _ClientRemoteProperty {}
+        class ClientRemoteSignal extends _ClientRemoteSignal {}
+        const Maid: Maid
+        class RemoteProperty extends _RemoteProperty {}
+        class RemoteSignal extends _RemoteSignal {}
+        class Signal extends _Signal {}
         const TableUtil: TableUtil
-        class SignalExtended extends Signal {}
         const Thread: Thread
     }
 }
